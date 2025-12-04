@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Bonvicini;Francesco;;;
+FN:Francesco Bonvicini
+ORG:Concept.O S.r.l.
+TEL;TYPE=CELL:+39 3478488157
+EMAIL;TYPE=WORK:francesco@concept-o.it
+ADR;TYPE=WORK:;;Via San Giuseppe Lavoratore, 22;Arcole;VR;37040;Italia
+URL:https://www.concept-o.it
+END:VCARD
