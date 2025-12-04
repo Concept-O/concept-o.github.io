@@ -8,8 +8,8 @@
   <meta name="description" content="Contatto di Francesco Bonvicini – Concept.O S.r.l. Interior design, progettazione e consulenza.">
   <style>
     :root {
-      --bg: #0f172a;
-      --card: #0b1220;
+      --bg: #020617;
+      --card: #020617;
       --accent: #f97316;
       --accent-soft: rgba(249,115,22,0.12);
       --text-main: #e5e7eb;
@@ -35,17 +35,26 @@
     }
 
     .card {
-      background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,0.92));
-      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(15,23,42,0.98), rgba(15,23,42,0.92));
+      border-radius: 22px;
       border: 1px solid var(--border-soft);
       max-width: 440px;
       width: 100%;
-      padding: 24px 22px 26px;
+      padding: 22px 20px 24px;
       box-shadow:
-        0 18px 45px rgba(15,23,42,0.85),
-        0 0 0 1px rgba(15,23,42,0.8);
+        0 18px 45px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(15,23,42,0.75);
       position: relative;
       overflow: hidden;
+      animation: fadeUp 0.55s ease-out;
+      transition: transform 0.18s ease-out, box-shadow 0.18s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        0 22px 55px rgba(15,23,42,0.95),
+        0 0 0 1px rgba(148,163,184,0.55);
     }
 
     .glow {
@@ -54,32 +63,27 @@
       background:
         radial-gradient(circle at 0% 0%, rgba(249,115,22,0.22), transparent 60%),
         radial-gradient(circle at 100% 100%, rgba(96,165,250,0.16), transparent 55%);
-      opacity: 0.5;
+      opacity: 0.55;
       pointer-events: none;
       z-index: -1;
     }
 
-    .header {
+    .logo-wrap {
       display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 18px;
+      justify-content: center;
+      margin-bottom: 16px;
     }
 
-    .avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      background: radial-gradient(circle at 30% 20%, #f97316, #0f172a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 1.2rem;
-      color: #fefce8;
-      border: 1px solid rgba(248,250,252,0.18);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.55);
-      flex-shrink: 0;
+    .logo-wrap img {
+      max-width: 200px;
+      width: 70%;
+      height: auto;
+      filter: drop-shadow(0 12px 28px rgba(0,0,0,0.8));
+      animation: floatIn 0.7s ease-out 0.05s both;
+    }
+
+    .header {
+      margin-bottom: 14px;
     }
 
     .title-block h1 {
@@ -97,8 +101,9 @@
     }
 
     .title-block .company {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: #e5e7eb;
+      margin-bottom: 2px;
     }
 
     .tagline {
@@ -159,7 +164,7 @@
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: #f9fafb;
       color: #111827;
       border-radius: 999px;
       padding: 10px 18px;
@@ -171,10 +176,11 @@
       align-items: center;
       gap: 8px;
       box-shadow:
-        0 10px 25px rgba(249,115,22,0.55),
-        0 0 0 1px rgba(15,23,42,0.4);
+        0 12px 28px rgba(15,23,42,0.75),
+        0 0 0 0.5px rgba(148,163,184,0.7);
       cursor: pointer;
       white-space: nowrap;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out, background 0.16s ease-out;
     }
 
     .btn-primary span.icon {
@@ -182,12 +188,20 @@
       line-height: 1;
     }
 
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow:
+        0 16px 35px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(15,23,42,0.85);
+      background: #f3f4f6;
+    }
+
     .btn-secondary {
       background: rgba(15,23,42,0.9);
       border-radius: 999px;
       padding: 8px 14px;
       font-size: 0.85rem;
-      border: 1px solid rgba(148,163,184,0.55);
+      border: 1px solid rgba(148,163,184,0.7);
       color: var(--text-sub);
       text-decoration: none;
       display: inline-flex;
@@ -195,11 +209,19 @@
       gap: 6px;
       cursor: pointer;
       white-space: nowrap;
+      transition: transform 0.16s ease-out, box-shadow 0.16s ease-out, border-color 0.16s ease-out;
     }
 
     .btn-secondary span.icon {
       font-size: 0.95rem;
       line-height: 1;
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 24px rgba(15,23,42,0.85);
+      border-color: rgba(249,250,251,0.7);
+      color: #e5e7eb;
     }
 
     .footer-note {
@@ -219,22 +241,40 @@
       border-radius: 999px;
       background: var(--accent);
       box-shadow: 0 0 0 3px var(--accent-soft);
+      animation: softPulse 1.8s ease-out infinite;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.985);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes floatIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes softPulse {
+      0% { transform: scale(1); opacity: 0.95; }
+      50% { transform: scale(1.18); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.9; }
     }
 
     @media (max-width: 480px) {
       .card {
-        padding: 20px 18px 22px;
-      }
-
-      .header {
-        gap: 10px;
-      }
-
-      .avatar {
-        width: 46px;
-        height: 46px;
-        font-size: 1.05rem;
-        border-radius: 16px;
+        padding: 18px 16px 20px;
       }
 
       .title-block h1 {
@@ -262,12 +302,13 @@
   <main class="card">
     <div class="glow" aria-hidden="true"></div>
 
+    <div class="logo-wrap">
+      <img src="logo-concept-o.png" alt="Concept.O – Wood experience logo">
+    </div>
+
     <header class="header">
-      <div class="avatar" aria-hidden="true">
-        FB
-      </div>
       <div class="title-block">
-        <div class="role">Interior design & concept</div>
+        <div class="role">Interior design &amp; concept</div>
         <h1>Francesco Bonvicini</h1>
         <div class="company">Concept.O S.r.l.</div>
         <div class="tagline">Progettazione, consulenza e soluzioni su misura per i tuoi spazi.</div>
@@ -304,8 +345,8 @@
       <div class="section-title">Azioni rapide</div>
       <div class="button-row">
         <a class="btn-primary" href="https://concept-o.github.io/francesco-bonvicini.vcf">
-          <span class="icon">⬇️</span>
-          <span>Scarica contatto</span>
+          <span class="icon"></span>
+          <span>Aggiungi ai contatti</span>
         </a>
         <a class="btn-secondary" href="https://www.concept-o.it" target="_blank" rel="noopener">
           <span class="icon">↗</span>
