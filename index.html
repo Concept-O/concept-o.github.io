@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>Contatto – Francesco Bonvicini | Concept.O S.r.l.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Contatto di Francesco Bonvicini – Concept.O S.r.l. Interior design, progettazione e consulenza.">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: #f97316;
+      --accent-soft: rgba(249,115,22,0.12);
+      --text-main: #e5e7eb;
+      --text-sub: #9ca3af;
+      --border-soft: rgba(148,163,184,0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 12px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, rgba(15,23,42,0.98), rgba(15,23,42,0.92));
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      max-width: 440px;
+      width: 100%;
+      padding: 24px 22px 26px;
+      box-shadow:
+        0 18px 45px rgba(15,23,42,0.85),
+        0 0 0 1px rgba(15,23,42,0.8);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(249,115,22,0.22), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(96,165,250,0.16), transparent 55%);
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 20%, #f97316, #0f172a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 1.2rem;
+      color: #fefce8;
+      border: 1px solid rgba(248,250,252,0.18);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.55);
+      flex-shrink: 0;
+    }
+
+    .title-block h1 {
+      font-size: 1.25rem;
+      margin: 0 0 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .title-block .role {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-sub);
+      margin-bottom: 4px;
+    }
+
+    .title-block .company {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-top: 4px;
+    }
+
+    .section {
+      margin-top: 16px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(75,85,99,0.7);
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+      font-size: 0.9rem;
+    }
+
+    .info-row-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-sub);
+      margin-bottom: 2px;
+    }
+
+    .info-row a {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .info-row a:hover {
+      text-decoration: underline;
+    }
+
+    .address {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      line-height: 1.35;
+    }
+
+    .button-row {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #111827;
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow:
+        0 10px 25px rgba(249,115,22,0.55),
+        0 0 0 1px rgba(15,23,42,0.4);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary span.icon {
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .btn-secondary {
+      background: rgba(15,23,42,0.9);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(148,163,184,0.55);
+      color: var(--text-sub);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-secondary span.icon {
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    .footer-note {
+      margin-top: 14px;
+      font-size: 0.7rem;
+      color: var(--text-sub);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+      opacity: 0.9;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px 18px 22px;
+      }
+
+      .header {
+        gap: 10px;
+      }
+
+      .avatar {
+        width: 46px;
+        height: 46px;
+        font-size: 1.05rem;
+        border-radius: 16px;
+      }
+
+      .title-block h1 {
+        font-size: 1.1rem;
+      }
+
+      .button-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary, .btn-secondary {
+        justify-content: center;
+        width: 100%;
+      }
+
+      .footer-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="glow" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="avatar" aria-hidden="true">
+        FB
+      </div>
+      <div class="title-block">
+        <div class="role">Interior design & concept</div>
+        <h1>Francesco Bonvicini</h1>
+        <div class="company">Concept.O S.r.l.</div>
+        <div class="tagline">Progettazione, consulenza e soluzioni su misura per i tuoi spazi.</div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-title">Contatti</div>
+      <div class="info-grid">
+        <div class="info-row">
+          <div class="info-row-label">Telefono</div>
+          <a href="tel:+393478488157">+39 347 848 8157</a>
+        </div>
+        <div class="info-row">
+          <div class="info-row-label">Email</div>
+          <a href="mailto:francesco@concept-o.it">francesco@concept-o.it</a>
+        </div>
+        <div class="info-row">
+          <div class="info-row-label">Sito web</div>
+          <a href="https://www.concept-o.it" target="_blank" rel="noopener">www.concept-o.it</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Studio</div>
+      <div class="address">
+        Via San Giuseppe Lavoratore, 22<br>
+        37040 Arcole (VR) – Italia
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">Azioni rapide</div>
+      <div class="button-row">
+        <a class="btn-primary" href="https://concept-o.github.io/francesco-bonvicini.vcf">
+          <span class="icon">⬇️</span>
+          <span>Scarica contatto</span>
+        </a>
+        <a class="btn-secondary" href="https://www.concept-o.it" target="_blank" rel="noopener">
+          <span class="icon">↗</span>
+          <span>Visita il sito Concept.O</span>
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer-note">
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div class="dot"></div>
+        <span>Biglietto digitale NFC</span>
+      </div>
+      <span>concept-o.it</span>
+    </footer>
+  </main>
+</body>
+</html>
